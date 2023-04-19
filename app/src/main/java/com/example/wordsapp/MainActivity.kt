@@ -38,49 +38,7 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        recyclerView = binding.recyclerView
-        // Sets the LinearLayoutManager of the recyclerview
-       chooseLayout()
-
 
     }
 
-    private fun chooseLayout(){
-        if (isLinearLayoutManager){
-            recyclerView.layoutManager=LinearLayoutManager(this)
-        }else{
-            recyclerView.layoutManager=GridLayoutManager(this,4)
-        }
-        recyclerView.adapter = LetterAdapter()
-    }
-
-    //Some menuEntry thing here probably, very to to regurgitate this without help
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.layout_menu, menu)
-        val layoutButton = menu?.findItem(R.id.action_switch_layout)
-        setIcon(layoutButton)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId){
-            R.id.action_switch_layout -> {
-                isLinearLayoutManager=!isLinearLayoutManager
-                chooseLayout()
-                setIcon(item)
-            return true}
-            else -> {super.onOptionsItemSelected(item)}
-        }
-
-    }
-    private fun setIcon(menuItem : MenuItem?){
-        if (menuItem == null)
-            return
-
-        menuItem.icon=
-            if(isLinearLayoutManager)
-                ContextCompat.getDrawable(this,R.drawable.ic_grid_layout)
-            else
-                ContextCompat.getDrawable(this,R.drawable.ic_list_layout)
-    }
 }
