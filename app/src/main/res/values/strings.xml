@@ -14,6 +14,7 @@
      limitations under the License.
 -->
 <resources>
+    <string name="word_list_fragment_label">Words That Start With {letter}</string>
     <string name="app_name">Words</string>
     <string name="detail_prefix">Words That Start With</string>
     <string name="action_switch_layout">Switch Layout</string>
